@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Webs Santander",
+    "items": [
+      {
+        "title": "Santander.com"
+      },
+      {
+        "title": "Santander Inmuebles"
+      },
+      {
+        "title": "Santander Asset Management"
+      },
+      {
+        "title": "Santander Consumer"
+      }
+    ]
+  },
+  {
+    "title": "Info. Legal y Seguridad",
+    "items": [
+      {
+        "title": "Aviso Legal"
+      }
+    ]
+  },
+  {
+    "title": "Acceso rápido"
+  },
+  {
+    "title": "Destacados"
+  }
+]

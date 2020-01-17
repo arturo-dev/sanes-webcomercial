@@ -1,0 +1,68 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+@import url('http://localhost:4200/assets/font/SantanderHeadlineW05-Rg.woff');
+@import url('http://localhost:4200/assets/font/SantanderHeadlineW05-Bold.woff');
+$config: mat-typography-config(
+  $font-family: "Santander, Helvetica Neue, sans-serif"
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($config);
+
+$sanes-brand: (
+    50: #ec0000,
+    100: #ec0000,
+    200: #ec0000,
+    300: #ec0000,
+    400: #ec0000,
+    500: #ec0000,
+    600: #ec0000,
+    700: #ec0000,
+    800: #ec0000,
+    900: #ec0000,
+    A100: #ec0000,
+    A200: #ec0000,
+    A400: #ec0000,
+    A700: #ec0000,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$sanes-web-comercial-primary: mat-palette($sanes-brand);
+$sanes-web-comercial-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$sanes-web-comercial-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$sanes-web-comercial-theme: mat-light-theme($sanes-web-comercial-primary, $sanes-web-comercial-accent, $sanes-web-comercial-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($sanes-web-comercial-theme);
+
+@import './component/icon.scss';

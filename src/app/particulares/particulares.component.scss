@@ -1,0 +1,11 @@
+img {
+  transition: .4s all linear;
+
+  &.show {
+    transform: translateX(0);
+  }
+
+  &.hide {
+    transform: translateX(+180%);
+  }
+}

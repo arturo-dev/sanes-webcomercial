@@ -1,0 +1,167 @@
+@import 'variables';
+
+:host {
+
+  .list-clickable {
+    cursor: pointer;
+    padding-top: 0px;
+
+    mat-list-item {
+      height: 64px;
+
+      @media only screen and (max-width: 960px)  {
+        height: 58px;
+      }
+    }
+
+    mat-list-item:hover,
+    .active {
+      transition: 0.4s all ease;
+      color: $san-red;
+
+      &::after {
+        content: "";
+        height: 2px;
+        width: 56px;
+        background: $san-red;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: lineup 0.4s;
+
+        @keyframes lineup {
+          from {width: 0;}
+          to {width: 56px;}
+        }
+      }
+    }
+  }
+
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    padding-bottom: 0px;
+    background-color: $san-light-blue;
+
+    & > .search-input {
+      width: calc(81% - 17px);
+    }
+
+    & > .language-input {
+      margin-left: 17px;
+      width: 19%;
+    }
+
+    .search-suffix {
+      display: flex;
+    }
+  }
+
+  .showMenu {
+    transition: 0.4s ease;
+    transform: translate(0);
+  }
+
+  .hideRight {
+    transition: 0.4s ease;
+    transform: translate(100%);
+  }
+
+  .page-panel {
+    box-shadow: none;
+
+    mat-expansion-panel-header {
+      min-height: 64px;
+
+      &[aria-expanded="false"] {
+        mat-panel-title {
+          transition: 0.4s all ease;
+          color: $san-red;
+
+          &::after {
+            content: "";
+            height: 2px;
+            width: 56px;
+            background: $san-red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: lineup 0.4s;
+
+            @keyframes lineup {
+              from {width: 0;}
+              to {width: 56px;}
+            }
+          }
+        }
+      }
+    }
+  }
+
+  mat-expansion-panel {
+    box-shadow: none;
+
+    mat-expansion-panel-header {
+      &[aria-expanded="true"] {
+        mat-panel-title {
+          transition: 0.4s all ease;
+          color: $san-red;
+
+          &::after {
+            content: "";
+            height: 2px;
+            width: 56px;
+            background: $san-red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: lineup 0.4s;
+
+            @keyframes lineup {
+              from {width: 0;}
+              to {width: 56px;}
+            }
+          }
+        }
+      }
+    }
+
+    ::ng-deep {
+      .mat-expansion-panel-body {
+        padding-right: 0px;
+      }
+    }
+
+    mat-list {
+      mat-list-item {
+
+        ::ng-deep {
+          .mat-line {
+            white-space: normal;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          transition: 0.4s all ease;
+          color: $san-red;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  mat-drawer {
+    width: 236px;
+
+    [mat-line] {
+      white-space: pre-wrap;
+    }
+  }
+
+  .branding {
+    margin: 17px;
+    width: calc(100% - 34px);
+  }
+}

@@ -1,0 +1,56 @@
+@import 'variables';
+
+:host {
+
+  footer {
+    margin-top: 24px;
+    background-color: $san-light-blue;
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    mat-expansion-panel {
+      box-shadow: none;
+      background-color: transparent;
+      min-width: 200px;
+
+      .mat-expansion-panel-header[aria-disabled=true] {
+        color: black;
+      }
+
+      mat-panel-title {
+        font-weight: 300;
+        font-size: 1.4em;
+        position: relative;
+
+        &::after {
+          content: "";
+          height: 2px;
+          width: 39px;
+          background: $san-red;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sub-item {
+        font-weight: 300;
+        font-size: 1.1em;
+        margin: 7px 0;
+      }
+    }
+
+  }
+
+}

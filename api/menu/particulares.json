@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Cuentas y tarjetas",
+    "items": [
+      {
+        "title": "Cuentas Corrientes",
+        "items": [
+          {
+            "title": "Cuenta Zero 1|2|3"
+          },
+          {
+            "title": "Cuenta Smart"
+          }
+        ]
+      },
+      {
+        "title": "Tarjetas de Crédito",
+        "items": [
+          {
+            "title": "Tarjeta Santander PRIME"
+          },
+          {
+            "title": "Tarjeta Crédito Mundo 1|2|3"
+          }
+        ]
+      },
+      {
+        "title": "Tarjetas de Débito"
+      },
+      {
+        "title": "Financiación con Tarjeta"
+      }
+    ]
+  },
+  {
+    "title": "Ahorro e Inversión",
+    "items": [
+      {
+        "title": "Foo"
+      },
+      {
+        "title": "Foo"
+      }
+    ]
+  },
+  {
+    "title": "Hipotecas"
+  },
+  {
+    "title": "Préstamos"
+  },
+  {
+    "title": "Seguros"
+  },
+  {
+    "title": "Banca Digital"
+  },
+  {
+    "title": "SmartBank"
+  }
+]

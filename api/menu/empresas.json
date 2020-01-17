@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Cuentas y tesorería",
+    "items": [
+      {
+        "title": "Cuentas",
+        "items": [
+          {
+            "title": "Cuenta 1|2|3 Profesional"
+          },
+          {
+            "title": "Cuenta Día a Día Pymes"
+          }
+        ]
+      },
+      {
+        "title": "Fondos de Inversión",
+        "items": [
+          {
+            "title": "Fondos garantizados"
+          },
+          {
+            "title": "Fondos monetarios y renta fija"
+          }
+        ]
+      },
+      {
+        "title": "Bolsa e inversión"
+      },
+      {
+        "title": "Información Precontractual"
+      }
+    ]
+  },
+  {
+    "title": "Gestión diaria",
+    "items": [
+      {
+        "title": "Foo"
+      },
+      {
+        "title": "Foo"
+      }
+    ]
+  }
+]

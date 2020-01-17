@@ -1,0 +1,54 @@
+<mat-drawer-container>
+  <mat-drawer #sidenav position="end" [mode]="mode" [opened]="opened">
+    <app-menu></app-menu>
+  </mat-drawer>
+  <mat-drawer-content #drawerContent (scroll)="onScroll($event)">
+    <mat-toolbar color="primary" class="bg-toolbar" #bgToolbar></mat-toolbar>
+    <mat-toolbar class="no-bg-toolbar">
+      <img class="logo" [ngClass]="loaded ? '' : 'hidden'" src="assets/img/logo-san.png" alt="Logo Santander" />
+      <div class="branding" #branding [ngClass]="showBranding ? 'show' : ''">Bienvenid@ a la banca responsable</div>
+      <span class="span-spacer"></span>
+      <button mat-raised-button matTooltip="Hazte cliente" class="button-client"
+        *ngIf="currentPageType !== WebpageType.PRIVATE_BANKING">
+        <mat-icon>account_box</mat-icon> <span *ngIf="mode === 'side'">&nbsp; Hazte cliente</span>
+      </button>
+      <button mat-button matTooltip="Acceso clientes" (mouseenter)="unlocked = true" (mouseleave)="unlocked = false">
+        <mat-icon *ngIf="!unlocked">lock</mat-icon>
+        <mat-icon *ngIf="unlocked">lock_open</mat-icon>
+        <span *ngIf="mode === 'side'">&nbsp; Acceso clientes</span>
+      </button>
+      <mat-icon [attr.aria-hidden]="!opened" aria-label="Example home icon" (click)="sidenav.toggle()" *ngIf="!opened">
+        menu
+      </mat-icon>
+    </mat-toolbar>
+    <div #parallax class="parallax">
+      <div #textPromo class="text-promo" *ngIf="window.innerHeight >= 334">
+        <div class="sencillo" #sencillo>Sencillo</div>
+        <div class="personal" #personal>Personal</div>
+        <div class="justo" #justo>Justo</div>
+
+        <div class="typewriter" #comoDeberia>
+          <h1>Como un banco debería ser</h1>
+        </div>
+      </div>
+      <!--
+      <div class="img-wrapper">
+        <img #imgMain src="assets/img/santander-sede.png" />
+      </div>
+      -->
+
+      <button class="scroll-down-button" color="primary" mat-fab aria-label="Scroll down"
+        (click)="scrollToContent(drawerContent)" [ngClass]="showButtonAnimation ? 'animate' : ''"
+        (mouseenter)="showButtonAnimation = true" #scrollerDown (mouseleave)="showButtonAnimation = false">
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
+    </div>
+    <main class="content">
+      <ng-content></ng-content>
+    </main>
+
+    <app-footer></app-footer>
+    <div class="copyrigth">© Banco Santander, S.A. Santander es una marca registrada. Todos los derechos reservados
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

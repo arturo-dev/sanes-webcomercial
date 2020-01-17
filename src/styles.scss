@@ -1,1 +1,43 @@
+
+@import './styles/theme.scss';
+@import 'variables';
+
 /* You can add global styles to this file, and also import other style files */
+
+
+@font-face {
+  font-family: 'Santander';
+  src: url('assets/font/SantanderHeadlineW05-Rg.woff');
+}
+
+@font-face {
+  font-family: 'Santander';
+  src: url('assets/font/SantanderHeadlineW05-Bold.woff');
+  font-weight: bold;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Santander", "Helvetica Neue", sans-serif; }
+
+@media print {
+  mat-drawer-container,
+  mat-drawer-content {
+    overflow: visible !important;
+  }
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("assets/img/santander-bg-parallax.jpg");
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mat-expansion-indicator::after {
+  color: $san-red;
+}
+

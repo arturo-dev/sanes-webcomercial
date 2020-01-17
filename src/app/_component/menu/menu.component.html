@@ -1,0 +1,100 @@
+<!--
+<mat-list role="list" class="list-clickable">
+  <mat-list-item *ngFor="let page of pages" matRipple [ngClass]="currentPage == page.type ? 'active' : ''"
+    role="listitem" (click)="navigate(page.path)">
+    <mat-icon mat-list-icon>{{page.icon}}</mat-icon>
+    <div mat-line>{{page.label}}</div>
+  </mat-list-item>
+</mat-list>
+-->
+<mat-expansion-panel class="page-panel" #expansionPageSelected>
+  <mat-expansion-panel-header matRipple>
+    <mat-panel-title>
+      <mat-icon>{{activePage?.icon}}</mat-icon> &nbsp; {{activePage?.label}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <mat-list role="list" class="list-clickable">
+    <mat-list-item *ngFor="let page of pages" matRipple [ngClass]="currentPage == page.type ? 'active' : ''"
+      role="listitem" (click)="navigate(page.path); expansionPageSelected.close(); selectActivePage(page);">
+      <mat-icon mat-list-icon>{{page.icon}}</mat-icon>
+      <div mat-line>{{page.label}}</div>
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>
+
+<mat-divider></mat-divider>
+
+<div class="search-container">
+  <mat-form-field appearance="legacy" class="search-input">
+    <mat-label>Búsqueda</mat-label>
+    <input matInput placeholder="Insertar 'ejemplo'" [matAutocomplete]="auto" [formControl]="searchInput">
+    <div matSuffix class="search-suffix">
+      <mat-spinner *ngIf="searchLoading" diameter="20"></mat-spinner>
+      <mat-icon>search</mat-icon>
+    </div>
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of options" [value]="option.value" [innerHTML]="option.html"></mat-option>
+  </mat-autocomplete>
+
+
+  <mat-form-field class="language-input">
+    <span matPrefix>
+      <mat-icon>translate</mat-icon>
+    </span>
+    <mat-select [(ngModel)]="currentLanguage">
+      <mat-option [value]="'es_ES'">
+        Español
+      </mat-option>
+      <mat-option [value]="'en_GB'">
+        Inglés
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<mat-divider></mat-divider>
+
+<div [ngClass]="loadingMenu ? 'hideRight' : 'showMenu'">
+  <mat-expansion-panel *ngFor="let menu of menuMain" togglePosition="before">
+    <mat-expansion-panel-header matRipple>
+      <mat-panel-title>
+        {{menu.title}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-list role="list">
+      <mat-list-item matRipple *ngFor="let item of menu.items"
+        (click)="sidenav.open(); opened = true; loadItems(item);">
+        <mat-icon mat-list-icon class="icon-sm icon-red">remove</mat-icon>
+        <p mat-line>{{item.title}}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</div>
+
+<mat-drawer #sidenav [style.display]="opened ? '' : 'none'" position="end" [mode]="'over'" [opened]="opened" autofocus
+  (focusout)="sidenav.open()">
+  <mat-list role="list">
+    <mat-list-item matRipple role="listitem" (click)="sidenav.close(); backSidenav();">
+      <mat-icon mat-list-icon class="icon-red">arrow_back</mat-icon>
+      <p mat-line>Volver</p>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-list role="list">
+    <mat-list-item matRipple role="listitem" (click)="sidenav.close(); emitClose();"
+      *ngFor="let item of currentSidenav">
+      <mat-icon mat-list-icon class="icon-sm icon-red">remove</mat-icon>
+      <p mat-line>{{item.title}}</p>
+    </mat-list-item>
+  </mat-list>
+</mat-drawer>
+
+<mat-divider></mat-divider>
+
+<div>
+  <img class="branding" src="assets/img/branding.png" alt="Sencillo, personal y justo, como un banco deberia ser" />
+</div>
